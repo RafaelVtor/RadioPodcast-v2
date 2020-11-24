@@ -12,7 +12,7 @@ const app = express()
 
    
 
-  const getPodcastDetails = async (res, req)=> {
+  const getPodcastDetails = async (req, res)=> {
        const podcast= [{
         title: String,
         date: String,
@@ -20,6 +20,7 @@ const app = express()
         sound: String,
         time: String,
     }] 
+        let arrayPodcast
         let detail
         let content
         const url = `https://podcasts.google.com/feed/aHR0cHM6Ly9qb3ZlbW5lcmQuY29tLmJyL2ZlZWQtbmVyZGNhc3Qv`
@@ -30,15 +31,15 @@ const app = express()
                         
             if (response.ok)
                 //content = await response.text()
-                getHtml(await response.text())
+                arrayPodcast = getHtml(await response.text())
+                res.json(podcast)
         } catch (err) {
 
             return
         }
-        
         //getHtml(content)
 
-        function getTitle(content) {
+        function getDate(content) {
             const startSearch = `<div class="${("OTz6ee" || "LrApYe")}" role="presentation">`
             const endSearch = '</div>'
             let currentPosition = content.indexOf(startSearch)
@@ -74,7 +75,7 @@ const app = express()
 
         }
 
-        function getDate(content) {
+        function getTitle(content) {
             const startSearch = '<div class="e3ZUqe" role="presentation">'
             const endSearch = '</div></div><div class="LrApYe" role="presentation">'
             let currentPosition = content.indexOf(startSearch)
@@ -151,17 +152,13 @@ const app = express()
            try {
                 
                    await writeFile(global.podcastAPI, JSON.stringify(podcast)) 
+                   return podcast
               } catch (error) {
                   console.log(error)
               } 
+
        
-    }
-
-
- 
-  
-
-        
+    }        
        
 
 export default{ getPodcastDetails}

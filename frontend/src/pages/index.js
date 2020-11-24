@@ -1,17 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-
+import podcastDetails from '../js/handlePodcast'
 
 
 import { useState ,useEffect } from 'react'
 
 import Head from 'next/head';
 
-export default function index() {
+const index = ()=> {
 
     const [imagePodcast, setImagePodcast] = useState([])
     const [range, setRange] = useState([])
+    const [podcastAtributes, setPodcastAtributes] = useState([])
+
+   useEffect(()=>{
+        try {
+            fetch('http://localhost:3333/')
+                .then((response)=>{
+                
+                    response.json().then((res)=>{
+                       res.map(array=>{
+                           setPodcastAtributes(array)
+                       })
+                    })
+                })
+                
+            } catch (error) {
+                console.log(error)
+            }
+        }, [])
+        console.log(podcastAtributes)
+
+  
+
 
     useEffect(()=>{
         window.addEventListener('load', () => {
@@ -68,6 +90,7 @@ export default function index() {
                         <img className="podcastImage" src={`https://raw.githubusercontent.com/RafaelVtor/RadioPodcast/master/img/${imagePodcast}.jpg`}></img>
                         <legend className="description"></legend>
                     </div>
+                   
                      <script type="text/javascript" src="../js/script.js" ></script>
                 </div>
                          
@@ -75,3 +98,4 @@ export default function index() {
     )
 }
 
+export default index

@@ -1,19 +1,18 @@
 import React from 'react'
 
 
-
 window.addEventListener('load', () => {
         
-    console.log(podcastDetails.podcast)
-        
+            
     let mhz = document.querySelector('#mhz')
     let frequency = document.querySelector('#frequency')
     let description = document.querySelector('.description')
     let podcastImage = document.querySelector('.podcastImage')
     
     frequency.addEventListener('input', searchChannels)
-    
-    let podcastChannels = podcast.map(channel => {
+    const listDetailsPodcast = podcastDetails.handlePodcast()
+    console.log("tesrw"+listDetailsPodcast)
+    let podcastChannels =  podcast.map(channel => {
         return {
             name: channel.name,
             image: channel.image,

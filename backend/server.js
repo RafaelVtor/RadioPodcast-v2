@@ -11,7 +11,7 @@ import { promises as fs } from 'fs'
  
 const { readFile } = fs
 
-global.podcastAPI = 'podcastAPI.json'
+global.podcastAPI = './podcastAPI.json'
 
 console.log(PodcastController)
 const app = express()
@@ -20,24 +20,16 @@ app.use(cors())
 app.use(express.json())
 
 //app.get('/', PodcastController.index)
-//app.get('/', GetPodcastInfo.getPodcastDetails)
-app.get('/get', GetPodcastModel.all)
+app.get('/', GetPodcastInfo.getPodcastDetails)
+app.get('/get', GetPodcastModel.all) 
 
 
-app.listen(3000, async ()=>{
+app.listen(3333, async (req, res)=>{
  
-   try {
-        let data = await readFile(podcastAPI)
-       
-        
-        console.log('API Started')
-
-    } catch (err) { 
-        console.log(err)
-    }
+   
 
 })
 
-console.log('Executando raspagem de dados na porta 3333...');
+console.log('Executando raspagem de dados na porta 3000...');
 
 
