@@ -13,13 +13,7 @@ const app = express()
    
 
   const getPodcastDetails = async (req, res)=> {
-       const podcast= [{
-        title: String,
-        date: String,
-        description: String,
-        sound: String,
-        time: String,
-    }] 
+       const podcast= [] 
         let arrayPodcast
         let detail
         let content

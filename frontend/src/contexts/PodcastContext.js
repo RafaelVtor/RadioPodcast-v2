@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 
+import styles from '../css/contexts/PodcastContext.module.css'
+
 export const PodcastContext = createContext()
 
 export default function GetPodcast({children}) {
@@ -23,7 +25,7 @@ export default function GetPodcast({children}) {
      
     
     return (
-        <PodcastContext.Provider value={podcastAtributes} >
+        <PodcastContext.Provider value={podcastAtributes} className={styles.contentMain}>
             {children}            
         </PodcastContext.Provider>
     )

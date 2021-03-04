@@ -12,15 +12,19 @@ import TopBar from '../components/TopBar'
 import Painel from '../components/Painel';
 import PlaylistPodcast from '../components/PlaylistPodcast';
 
+import styles from '../css/contexts/PodcastContext.module.css'
+
 const index = (props)=> {
 
    
   
     return (
-                <PodcastContext >                    
-                    <PlaylistPodcast/>
+                <PodcastContext >  
+                    <div className={styles.contentMain}>
+                        <Painel/> 
+                        <PlaylistPodcast/>
+                    </div>
                     <TopBar/>
-                    {/* <Painel/>  */}
                 </PodcastContext> 
                          
 

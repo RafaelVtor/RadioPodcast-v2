@@ -1,0 +1,21 @@
+.painelAudio {
+  display: grid;
+  align-items: center;
+  align-self: flex-start;
+
+  width: 80rem;
+  min-width: 40rem;
+  height: 40rem;
+
+  margin-top: 5px;
+
+  border-style: dotted;
+}
+
+.painelAudioContent {
+  padding: 15px 15px 15px 15px;
+}
+
+.painelAudioContent header {
+  padding-bottom: 15px;
+}

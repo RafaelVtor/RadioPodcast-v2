@@ -30,6 +30,6 @@ app.listen(3333, async (req, res)=>{
 
 })
 
-console.log('Executando raspagem de dados na porta 3000...');
+console.log('Executando raspagem de dados na porta 3333...');
 
 
