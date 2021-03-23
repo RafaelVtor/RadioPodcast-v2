@@ -1,9 +1,5 @@
 html {
-  background: radial-gradient(
-    circle,
-    rgb(175, 166, 107) 0%,
-    rgb(75, 68, 33) 100%
-  );
+  background: #282c34;
   height: 100%;
 }
 .container {

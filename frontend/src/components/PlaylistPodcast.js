@@ -4,29 +4,35 @@ import { PodcastContext } from '../contexts/PodcastContext'
 
 export default function playlistPodcast() {
     
-    const lista = useContext(PodcastContext)
+    const {podcastAtributes, putToListen, listenNow} = useContext(PodcastContext)
+    
+  
+    const indexAudioNow = listenNow.index
+    console.log(indexAudioNow)
         
     const [podcastList, setPodcastList] = useState([])   
     
-    let data = []
-
     useEffect(()=>{        
-           setPodcastList(lista)        
-    },[lista])
+           setPodcastList(podcastAtributes)        
+    },[podcastAtributes])
     
     return ( 
         <div className={styles.container}>
-            {podcastList.map(({date, description, time, title, sound})=>{
+            
+            {podcastList.map(({date, description, time, title, sound}, index)=>{
                 
                 return(
-                    <div className={styles.details}>
+                    
+                    <div >
+                        <button className={index===indexAudioNow ? styles.detailsSelected : styles.detailsNoSelected} key={index} type="submit" onClick={()=>putToListen({date, description, time, title, sound}, index)}>
                         <h1>
                             <strong>
                              {title}
                             </strong>
                         </h1>
-                        <p>{time} - {date}</p>
-                    </div>
+                        <p>{time} - {date}</p>                            
+                        </button>
+                    </div>                    
                 )
             })}
         

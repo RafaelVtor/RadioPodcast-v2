@@ -5,7 +5,12 @@
   height: 40rem;
   width: 50rem;
   padding: 0rem 1rem 0rem 1rem;
-  border-style: dotted;
+
+  border-style: groove;
+  border-color: rgb(39, 156, 98);
+  border-width: 6px;
+  border-radius: 10px;
+  transition: 0.2s;
 
   margin-top: 5px;
 
@@ -13,19 +18,57 @@
   overflow-y: scroll;
 }
 
-.details {
+.detailsSelected {
+  width: 100%;
   padding: 0.5rem;
   margin-top: 1rem;
+  color: #ffffff;
+  background: #3c443b;
 
   border-style: groove;
+  border-color: rgb(48, 153, 48);
+  border-width: 2px;
   border-radius: 10px;
+  transition: 0.2s;
+
+  outline: none;
 }
-.details h1 {
+.detailsSelected:hover {
+  border-color: rgb(77, 204, 77);
+}
+.detailsNoSelected {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  color: #ffffff;
+  background: #272c26;
+
+  border-style: groove;
+  border-color: rgb(48, 153, 48);
+  border-width: 2px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.detailsNoSelected:hover {
+  border-color: rgb(77, 204, 77);
+}
+
+.detailsSelected h1 {
   margin-bottom: 4px;
   font-size: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.details p {
+.detailsSelected p {
+  font-size: 20px;
+}
+
+.detailsNoSelected h1 {
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.detailsNoSelected p {
   font-size: 20px;
 }
