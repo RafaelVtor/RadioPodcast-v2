@@ -8,8 +8,7 @@ export default function playlistPodcast() {
     
   
     const indexAudioNow = listenNow.index
-    console.log(indexAudioNow)
-        
+            
     const [podcastList, setPodcastList] = useState([])   
     
     useEffect(()=>{        

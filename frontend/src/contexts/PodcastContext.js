@@ -33,6 +33,7 @@ export default function GetPodcast({children}) {
         setNextIndexSound(index + 1)
         setPreviousIndexSound(index -1)
     }
+
     
     return (
         <PodcastContext.Provider value={{podcastAtributes,listenNow,nextIndexSound,previousIndexSound,putToListen}} className={styles.contentMain}>
